@@ -7,11 +7,11 @@ default = 3
  
  
 variable resource_group_name {
-default = "azure-k8stest"
+default = "ServiceBus_resource_group"
 }
  
 variable location {
-default = "Central US"
+default = "West US 2"
 }
  
 variable log_analytics_workspace_name {
@@ -20,7 +20,7 @@ default = "testLogAnalyticsWorkspaceName"
  
 # refer https://azure.microsoft.com/global-infrastructure/services/?products=monitor for log analytics available regions
 variable log_analytics_workspace_location {
-default = "eastus"
+default = "West US 2"
 }
  
 # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing
