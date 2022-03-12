@@ -1,3 +1,6 @@
+# Variable olusturmasinda eksiklerim var, yardimlarinizi bekliyorum 
+
+
 variable "client_id" {}
 variable "client_secret" {}
  
