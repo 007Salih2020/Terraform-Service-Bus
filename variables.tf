@@ -10,7 +10,7 @@ default = 3
  
  
 variable resource_group_name {
-default = "ServiceBus_resource_group"
+default = "azurerm_resource_group"
 }
  
 variable location {
