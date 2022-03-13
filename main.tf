@@ -156,6 +156,8 @@ resource "azurerm_log_analytics_linked_storage_account" "example" {
   workspace_resource_id = azurerm_log_analytics_workspace.example.id
   storage_account_ids   = [azurerm_storage_account.example.id]
 }
+   
+ 
  # Log Analytics-1 mi ? yoksa 
  # Log Analytics-2 mi daha iyi duruyor ???
  
