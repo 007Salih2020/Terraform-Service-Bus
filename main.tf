@@ -109,7 +109,9 @@ availability_set_id = azurerm_availability_set.avset.id
 resource_group_name = azurerm_resource_group.test.name
 network_interface_ids = [element(azurerm_network_interface.test.*.id, count.index)]
 vm_size = "Standard_DS1_v2"
+
  
+ ## Log analytics -1 
  resource "azurerm_log_analytics_workspace" "default" {
   name                = "${var.name}-${var.environment}-law"
   location            = "${azurerm_resource_group.default.location}"
@@ -130,6 +132,32 @@ resource "azurerm_log_analytics_solution" "default" {
     product   = "OMSGallery/ContainerInsights"
   }
 }
+ 
+ # Log Analytics - 2  
+ 
+ resource "azurerm_storage_account" "example" {
+  name                     = "examplesa"
+  resource_group_name      = azurerm_resource_group.example.name
+  location                 = azurerm_resource_group.example.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+}
+
+resource "azurerm_log_analytics_workspace" "example" {
+  name                = "exampleworkspace"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+  sku                 = "PerGB2018"
+}
+
+resource "azurerm_log_analytics_linked_storage_account" "example" {
+  data_source_type      = "customlogs"
+  resource_group_name   = azurerm_resource_group.example.name
+  workspace_resource_id = azurerm_log_analytics_workspace.example.id
+  storage_account_ids   = [azurerm_storage_account.example.id]
+}
+ # Log Analytics-1 mi ? yoksa 
+ # Log Analytics-2 mi daha iyi duruyor ???
  
 # Uncomment this line to delete the OS disk automatically when deleting the VM
 # delete_os_disk_on_termination = true
