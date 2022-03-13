@@ -30,3 +30,23 @@ default = "West US 2"
 variable log_analytics_workspace_sku {
 default = "PerGB2018"
 }
+
+variable "name" {
+  type        = "string"
+  description = "Location of the azure resource group."
+  default     = "quickstart-aks"
+}
+
+variable "environment" {
+  type        = "string"
+  description = "Name of the deployment environment"
+  default     = "dev"
+}
+
+// Resource information
+
+variable "location" {
+  type        = "string"
+  description = "Location of the azure resource group."
+  default     = "WestUS2"
+}
